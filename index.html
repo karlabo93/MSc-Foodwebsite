@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content ="width=device-width, initial-scale=1.0">
+        <!--CSS libraries used-->
+        <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/Grid.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!--main CSS Stylesheet-->
+        <link rel = "stylesheet" type = "text/css" href= "resources/css/style.css">
+        <!--Responsive web stylesheet-->
+        <link rel = "stylesheet" type = "text/css" href= "resources/css/queries.css">
+        <!--Google font used-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,300i,400" rel="stylesheet">
+        <!--Load Leaflet -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"/>
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+        <!--Load Turf.js -->
+        <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
+        <!--Load js for map-->
+        <script src= "resources/js/map.js"></script>
+        <!--JS libraries used-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src = "https://cdn.jsdelivr.net/npm/respond@0.9.0/main.min.js"></script>
+        <script src = "https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src = "https://cdn.jsdelivr.net/npm/selectivizr@1.0.3/selectivizr.min.js"></script>
+        <script src = "vendors/js/jquery.waypoints.min.js"></script>
+        <!--Animations script-->
+        <script src ="resources/js/script.js"></script>
+
+
+        <title>Swiftmeals</title>
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="resources/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="resources/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="resources/favicons/favicon-16x16.png">
+        <link rel="manifest" href="resources/favicons/site.webmanifest">
+        <link rel="mask-icon" href="resources/favicons/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+    </head>
+    <body>
+        <body onload='initMap()'> 
+        <header>
+            <nav>
+                <div class="row">
+                    <img src="resources/img/swiftmeals1.png" alt="Swiftmeals logo" class="logo">
+                    <ul class="main-nav js--main-nav">
+                        <li><a href ="#features">About Us</a></li>
+                        <li><a href ="#menu">Menu</a></li>
+                        <li><a href ="#cities">Locations</a></li>
+                        <li><a href ="#works">How it works</a></li> 
+                        <li><a href ="#feedback">Feedback</a></li> 
+                           
+                    </ul>
+                    <a class="mobile-nav-icon js--nav-icon"><i class="fas fa-bars"></i></a>
+                </div>
+            </nav>
+            <div class="hero-text-box">
+                <h1>Fresh Healthy Meals.<br> Delivered straight to your doorstep!</h1>
+                <a class="btn btn-full js--scroll-to-menu" href ="#">Show me food!</a>
+                <a class="btn btn-full js--scroll-to-map" href ="#">Our Locations</a>
+                <a class= "btn btn-full js--scroll-to-start" href ="#">Company Info</a>  
+            </div>   
+        </header>
+        
+        <section class="section-features js--section-features" id ="features">
+            <div class="row">
+                <h2>Easy &mdash; Healthy &mdash; Delicious &mdash; Cheap</h2>
+                <p class = "long-copy">
+                    Those are our promises to you here at Swiftmeals. Founded by a group of fitness and food enthusiasts, we strive to provide the cheap, healthy and delicious meals in the easiest and fastest way possible. We understand the struggles of preparing healthy meals while being busy at work all day. Let us make it easy for you! 
+                </p>    
+            </div>
+            
+            <div class ="row js--wp-1">
+                <div class ="col span-1-of-4 box">
+                    <i class="far fa-calendar-alt icon-big"></i>
+                    <h3>All day, <br> every day</h3>
+                    <p>
+                        That's right, we can provide ALL your meals. Every single day. Try us out now and you may never have to cook again!
+                    </p>
+                </div>
+                
+                <div class ="col span-1-of-4 box">
+                    <i class="far fa-clock icon-big"></i>
+                    <h3>Get your food within 30 mins</h3>
+                    <p>
+                        Too busy to go out for lunch? No worries, we can bring our delicious freshly cooked meal to your doorstep within 30 mins of your order.
+                    </p>
+                </div>
+                
+                <div class ="col span-1-of-4 box">
+                    <i class="fas fa-apple-alt icon-big"></i>
+                    <h3>100% fresh ingredients</h3>
+                    <p>
+                        Our suppliers deliver fresh meat and vegetables on a daily basis, ensuring our customers get the highest quality meals possible!
+                    </p>
+                </div> 
+                <div class ="col span-1-of-4 box">
+                    <i class="fas fa-utensils icon-big"></i>
+                    <h3>Large &amp; growing menu</h3>
+                    <p>
+                        Our wide variety of freshly cooked meals will surely be able to satisfy your taste buds and help meet your caloric requirements!
+                    </p>
+                </div>       
+            </div>
+        </section>
+        
+        <section class="section-meals js--section-menu" id="menu">
+            <div class = "row">
+            <h2> Our Menu</h2>
+            </div>
+            <div class ="row clearfix">
+                <div class = "col span-1-of-4 box">
+                    <figure class = "meal-photo">
+                        <img src = "resources/img/chickensalad.jpg" alt = "Chicken Salad">
+                    </figure>
+                    <div class = "meal-info">
+                        <h4>Chicken Salad</h4>
+                        <h5>Calories: 371 kcal</h5>
+                        <h5>Protein: 34 g</h5>
+                        <h5>Carbohydrates: 25 g</h5>
+                        <h5>Fats: 15 g</h5>
+                        <h5>Price: &#xa3;4.00</h5>
+                    </div>      
+                </div>
+                <div class = "col span-1-of-4 box">
+                    <figure class = "meal-photo">
+                        <img src = "resources/img/salmon.jpg" alt = "Salmon Delight">
+                    </figure>
+                    <div class = "meal-info">
+                        <h4>Salmon Delight</h4>
+                        <h5>Calories: 435 kcal</h5>
+                        <h5>Protein: 45 g</h5>
+                        <h5>Carbohydrates: 30 g</h5>
+                        <h5>Fats: 20 g</h5>
+                        <h5>Price: &#xa3;5.50</h5>
+                    </div>      
+                </div>
+                <div class = "col span-1-of-4 box">
+                    <figure class = "meal-photo">
+                        <img src = "resources/img/eggfriedrice.jpg" alt = "Egg Fried Rice">
+                    </figure>
+                    <div class = "meal-info">
+                        <h4>Egg Fried Rice</h4>
+                        <h5>Calories: 468 kcal</h5>
+                        <h5>Protein: 30 g</h5>
+                        <h5>Carbohydrates: 60 g</h5>
+                        <h5>Fats: 12 g</h5>
+                        <h5>Price: &#xa3;4.50</h5>
+                    </div>      
+                </div>
+                <div class = "col span-1-of-4 box">
+                    <figure class = "meal-photo">
+                        <img src = "resources/img/beefsteak.jpg" alt = "Beef Steak">
+                    </figure>
+                    <div class = "meal-info">
+                        <h4>Beef Steak</h4>
+                        <h5>Calories: 497 kcal</h5>
+                        <h5>Protein: 38 g</h5>
+                        <h5>Carbohydrates: 30 g</h5>
+                        <h5>Fats: 25 g</h5>
+                        <h5>Price: &#xa3;7.50</h5>
+                    </div>      
+                </div>
+            </div>
+            <div class ="row clearfix">
+                <div class = "col span-1-of-4 box">
+                    <figure class = "meal-photo">
+                        <img src = "resources/img/pasta.jpg" alt = "Tomato Pasta">
+                    </figure>
+                    <div class = "meal-info">
+                        <h4>Tomato Pasta</h4>
+                        <h5>Calories: 485 kcal</h5>
+                        <h5>Protein: 25 g</h5>
+                        <h5>Carbohydrates: 58 g</h5>
+                        <h5>Fats: 17 g</h5>
+                        <h5>Price: &#xa3;5.00</h5>
+                    </div>      
+                </div>
+                <div class = "col span-1-of-4 box">
+                    <figure class = "meal-photo">
+                        <img src = "resources/img/avocadosalad.jpg" alt = "Avocado Salad">
+                    </figure>
+                    <div class = "meal-info">
+                        <h4>Avocado Salad</h4>
+                        <h5>Calories: 351 kcal</h5>
+                        <h5>Protein: 29 g</h5>
+                        <h5>Carbohydrates: 25 g</h5>
+                        <h5>Fats: 15 g</h5>
+                        <h5>Price: &#xa3;3.50</h5>
+                    </div>      
+                </div>
+                <div class = "col span-1-of-4 box">
+                    <figure class = "meal-photo">
+                        <img src = "resources/img/fruityoats.jpg" alt = "Fruity Oats">
+                    </figure>
+                    <div class = "meal-info">
+                        <h4>Fruity Oats</h4>
+                        <h5>Calories: 318 kcal</h5>
+                        <h5>Protein: 25 g</h5>
+                        <h5>Carbohydrates: 32 g</h5>
+                        <h5>Fats: 10 g</h5>
+                        <h5>Price: &#xa3;3.50</h5>
+                    </div>      
+                </div>
+                <div class = "col span-1-of-4 box">
+                    <figure class = "meal-photo">
+                        <img src = "resources/img/pancake.jpg" alt = "Protein Pancakes">
+                    </figure>
+                    <div class = "meal-info">
+                        <h4>Protein Pancakes</h4>
+                        <h5>Calories: 385 kcal</h5>
+                        <h5>Protein: 34 g</h5>
+                        <h5>Carbohydrates: 33 g</h5>
+                        <h5>Fats: 13 g</h5>
+                        <h5>Price: &#xa3;4.00</h5>
+                    </div>      
+                </div>
+            </div>        
+        </section>
+        
+                <section class = "section-cities" id="cities">
+            <div class = "row">
+                <h2>Our Locations </h2>
+            </div>
+            <div class = "row js--wp-3">
+                <div class = "col span-1-of-4 box">        
+                    <img src = "resources/img/london.jpg" alt = "Lisbon">
+                    <h3>London</h3>
+                    <div class = "city-feature">
+                        <i class = "fas fa-user icon-small"></i>
+                       1000+ Customers daily
+                    </div>
+                    <div class = "city-feature">
+                        <i class = "fas fa-map-marked-alt icon-small"></i>
+                        3 Kitchen locations
+                    </div>
+                    <div class = "city-feature">
+                        <i class = "fas fa-drumstick-bite icon-small"></i>
+                        2000+ Daily meals cooked
+                    </div>
+                    <div class = "city-feature">
+                        <i class = "fab fa-twitter icon-small"></i>
+                        <a href = "https://twitter.com/" target="_blank">@swiftmeals_ldn</a>
+                    </div>
+                </div>
+                <div class = "col span-1-of-4 box">        
+                    <img src = "resources/img/manchester.jpg" alt = "San Francisco">
+                    <h3>Manchester</h3>
+                    <div class = "city-feature">
+                        <i class = "fas fa-user icon-small"></i>
+                        800+ Customers daily
+                    </div>
+                    <div class = "city-feature">
+                        <i class = "fas fa-map-marked-alt icon-small"></i>
+                        3 Kitchen locations
+                    </div>
+                    <div class = "city-feature">
+                        <i class = "fas fa-drumstick-bite icon-small"></i>
+                        1400+ Daily meals cooked
+                    </div>
+                    <div class = "city-feature">
+                        <i class = "fab fa-twitter icon-small"></i>
+                        <a href = "https://twitter.com/" target="_blank">@swiftmeals_mcr</a>
+                    </div>
+                </div>
+                <div class = "col span-1-of-4 box">        
+                    <img src = "resources/img/liverpool.jpg" alt = "Berlin">
+                    <h3>Liverpool</h3>
+                    <div class = "city-feature">
+                        <i class = "fas fa-user icon-small"></i>
+                        700+ Customers daily
+                    </div>
+                    <div class = "city-feature">
+                        <i class = "fas fa-map-marked-alt icon-small"></i>
+                        3 Kitchen locations
+                    </div>
+                    <div class = "city-feature">
+                        <i class = "fas fa-drumstick-bite icon-small"></i>
+                        1300+ Daily meals cooked
+                    </div>
+                    <div class = "city-feature">
+                        <i class = "fab fa-twitter icon-small"></i>
+                        <a href = "https://twitter.com/" target="_blank">@swiftmeals_liv</a>
+                    </div>
+                </div>
+                <div class = "col span-1-of-4 box">        
+                    <img src = "resources/img/birmingham.jpg" alt = "London">
+                    <h3>Birmingham</h3>
+                    <div class = "city-feature">
+                        <i class = "fas fa-user icon-small"></i>
+                        800+ Customers dailyy
+                    </div>
+                    <div class = "city-feature">
+                        <i class = "fas fa-map-marked-alt icon-small"></i>
+                        3 Kitchen locations
+                    </div>
+                    <div class = "city-feature">
+                        <i class = "fas fa-drumstick-bite icon-small"></i>
+                        1500+ Daily meals cooked
+                    </div>
+                    <div class = "city-feature">
+                        <i class = "fab fa-twitter icon-small"></i>
+                        <a href = "https://twitter.com/" target="_blank">@swiftmeals_bir</a>
+                    </div>
+                </div>
+            </div>     
+        </section>
+        
+        <section class = "section-map js--section-map" id= "mapsection">
+            <div class = "row">
+                <h2> Locate our nearest store! </h2>
+            </div> 
+            
+            <div class="row inputAddress">
+                <p>Input your address below then select a location to obtain the route!</p>
+            </div>
+            
+        <!--input form-->
+        <div class ="row">   
+            <div class = "inputForm">
+                <form name= "myForm" class = "myForm" id="form" onsubmit="return false;">
+                    <label>Address:</label><input type="text" id="userInput" class="addressbox" name = "fName" placeholder="Insert your location"/>
+                    <input type="submit"  class="addressSubmit" value = "Input Address" onclick="validateForm(); initMap2(); printAddress();" /> 
+                </form>
+            </div> 
+            <div class = "inputAddress">
+                <p> Input Address:  <span id = "addressStatement"></span>
+                </p>
+            </div>    
+        </div>
+        
+        
+       <!--Location Buttons-->
+        <div class = "row">
+            <div class = "col span-1-of-4">
+                <h3>Manchester</h3>
+                <button class = "routeBtn" onclick = "validateForm(); location.href='#nlb'; initMap2(locationSelection[0])">City centre</button>
+                <button class = "routeBtn" onclick = "validateForm(); location.href='#nlb'; initMap2(locationSelection[1])">Salford</button>
+                <button class = "routeBtn" onclick = "validateForm(); location.href='#nlb'; initMap2(locationSelection[2])">Trafford</button>
+            </div>
+
+            <div class = "col span-1-of-4">
+                <h3>London</h3>
+                <button class = "routeBtn" onclick = "validateForm(); location.href='#nlb'; initMap2(locationSelection[3])">Canary Wharf</button>
+                <button class = "routeBtn" onclick = "validateForm(); location.href='#nlb'; initMap2(locationSelection[4])">Islington</button>
+                <button class = "routeBtn" onclick = "validateForm(); location.href='#nlb'; initMap2(locationSelection[5])">Upton Park</button>
+            </div>
+
+            <div class = "col span-1-of-4 ">
+                <h3>Liverpool</h3>
+                <button class = "routeBtn" onclick = "validateForm(); location.href='#nlb'; initMap2(locationSelection[6])">Kirkby</button>
+                <button class = "routeBtn" onclick = "validateForm(); location.href='#nlb'; initMap2(locationSelection[7])">Fairfield</button>
+                <button class = "routeBtn" onclick = "validateForm(); location.href='#nlb'; initMap2(locationSelection[8])">Birkenhead</button>
+            </div>
+
+            <div class = "col span-1-of-4" id = 'nlb'>
+                <h3>Birmingham</h3>
+                <button class = "routeBtn" onclick = "validateForm(); location.href='#nlb'; initMap2(locationSelection[9])">Birmingham City</button>
+                <button class = "routeBtn" onclick = "validateForm(); location.href='#nlb'; initMap2(locationSelection[10])">Solihull</button>
+                <button class = "routeBtn" onclick = "validateForm(); location.href='#nlb'; initMap2(locationSelection[11])">Northfield</button>
+            </div>
+        </div>
+            
+        <div class = "row buttonDiv">
+            <button class = "closestLocation" onclick = "validateForm(); location.href='#nlb'; initMap3();">Select nearest location</button>
+        </div>
+        
+        <div class = "row">   
+        <div class = "col span-2-of-3 mapSet">
+            <div id='map'></div>
+        </div>
+        <div class = "col span-1-of-3">
+            <div id = 'directions' class = 'dirBox'></div>
+        </div>
+        </div> 
+        
+        </section>
+        
+        <section class ="section-steps" id= "works">
+            <div class = "row">
+                <h2>How to order &mdash; 3 simple steps </h2>
+            </div>        
+            <div class = "row">
+                <div class = "col span-1-of-2 steps-box">
+                    <img src = "resources/img/phonepic.png" alt = "Swiftmeals Phone Pic" class ="app-screen js--wp-2">
+                </div>
+                <div class = "col span-1-of-2 steps-box">
+                    <div class ="works-step">
+                        <div>1</div>
+                        <p class = "para">Download the app and register and account on our website.</p>
+                    </div>
+                    <div class ="works-step">
+                        <div>2</div>
+                        <p class = "para">Either place your order to be delivered to your location or collected at our store.</p>
+                    </div>
+                    <div class ="works-step">
+                        <div>3</div>
+                        <p class = "para">Make payment and enjoy your freshly cooked meal within 30 minutes!</p>
+                    </div>
+                    
+                    <a href ="https://www.apple.com/uk/ios/app-store/" target="_blank" class="btn-app"><img src="resources/img/download-app.svg" alt ="App Store Button"></a>
+                    <a href ="https://play.google.com/store" target="_blank" class="btn-app"><img src="resources/img/download-app-android.png" alt ="Play Store Button"></a>  
+                </div>       
+            </div>
+        </section>
+        
+        <section id = 'feedback' class ="section-form">
+            <div class="row">
+                <h2>We're happy to hear from you</h2>
+            </div>
+            <div class ="row">
+                <form method="post" action="#" class="contact-form">
+                    <div class ="row">
+                        <div class = "col span-1-of-3">
+                            <label for ="name">Name</label>
+                        </div>
+                        <div class = "col span-2-of-3">
+                            <input type = "text" name = "name" id= "name" placeholder="Your name" required>
+                        </div>
+                    </div>
+                    <div class ="row">
+                        <div class = "col span-1-of-3">
+                            <label for ="email">Email</label>
+                        </div>
+                        <div class = "col span-2-of-3">
+                            <input type = "email" name = "email" id= "email" placeholder="Your email" required>
+                        </div>
+                    </div>
+                    <div class ="row">
+                        <div class = "col span-1-of-3">
+                            <label for = "find-us">How did you find us?</label>
+                        </div>
+                        <div class = "col span-2-of-3">
+                            <select name ="find-us" id="find-us">
+                                <option value="friends" selected>Friends</option>
+                                <option value="search">Search Engine</option>
+                                <option value="ad">Advertisement</option>
+                                <option value="other">Other</option>               
+                            </select>
+                        </div>
+                    </div>
+                    <div class ="row">
+                        <div class = "col span-1-of-3">
+                            <label>Newsletter</label>
+                        </div>
+                        <div class = "col span-2-of-3">
+                            <input type = "checkbox" name = "news" id= "news" checked>Yes I would like to receive newsletters!
+                        </div>
+                    </div>
+                    <div class ="row">
+                        <div class = "col span-1-of-3">
+                            <label>Leave us a message!</label>
+                        </div>
+                        <div class = "col span-2-of-3">
+                            <textarea name="message" placeholder="Your message"></textarea>
+                        </div>
+                    </div>
+                    <div class ="row">
+                        <div class = "col span-1-of-3">
+                            <label>&nbsp;</label>
+                        </div>
+                        <div class = "col span-2-of-3">
+                            <input type = "submit" value = "Send it!" class ="submitbtn">
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        
+        </section>
+
+        <footer>
+            <div class ="row">
+                <div class="col span-1-of-2">
+                    <ul class ="footer-nav">
+                        <li><a href="#features">About us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="https://www.apple.com/uk/ios/app-store/" target="_blank">iOS App</a></li>
+                        <li><a href="https://play.google.com/store" target="_blank">Android App</a></li>
+                    </ul>
+                </div>
+                <div class="col span-1-of-2">
+                    <ul class ="social-links">
+                        <li><a href ="https://www.facebook.com/" target="_blank" ><i class ="fab fa-facebook"></i></a></li>
+                        <li><a href ="https://twitter.com/" target="_blank"><i class ="fab fa-twitter twitcon"></i></a></li>
+                        <li><a href ="https://plus.google.com/" target="_blank"><i class ="fab fa-google-plus-g"></i></a></li>
+                        <li><a href ="https://www.instagram.com/" target="_blank"><i class ="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class ="row">
+                <p>
+                    Copyright &copy; 2019 by Swiftmeals. All rights reserved.
+                </p>
+            </div>
+            
+        </footer>
+    </body>
+</html>
